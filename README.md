@@ -1,11 +1,12 @@
 # Prerequisities
-JDK 11
+JDK 18
 Docker
+Using Jackson cos Lombok doesnt support camel_case by default
 
 # How bring the mockservice up
 cd mockserver  
 docker compose up  
-the mocke server will start at port 1080
+the mock server will start at port 1080
 
 # How bring the service up
 ./mvnw clean install -DskipTests  
