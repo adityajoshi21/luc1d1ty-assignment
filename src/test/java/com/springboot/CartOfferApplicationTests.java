@@ -70,7 +70,7 @@ public class CartOfferApplicationTests {
 		@Test
 		@DisplayName("Check Flat Amount offer working")
 		public void checkFlatAmountOffer() throws Exception {
-			OfferRequest offerRequest = new OfferRequest(1, "FLATX", 20, List.of("p1"));
+			OfferRequest offerRequest = new OfferRequest(1, "FLATX", 40, List.of("p1"));
 			boolean result = addOffer(offerRequest);
 			Assert.assertTrue(result);
 

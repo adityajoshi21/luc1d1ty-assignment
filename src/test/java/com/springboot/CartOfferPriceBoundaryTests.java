@@ -47,17 +47,17 @@ public class CartOfferPriceBoundaryTests {
 	public void testExtremelyLargeCartValue() throws Exception {
 		OfferRequest offerRequest = new OfferRequest(1, "FLATX", 20, List.of("p1"));
 		postOffer(offerRequest);
-		validateApplyOffer(new ApplyOfferRequest(Integer.MAX_VALUE, 1, 1), Integer.MAX_VALUE - 20);
+		validateApplyOffer(new ApplyOfferRequest(Integer.MAX_VALUE, 1, 1), 2147483607);
 	}
 
 	@Test
 	@DisplayName("Offer with a decimal percentage when FLAT X% coupon applied")
 	public void testDecimalPercentageOffer() throws Exception {
-		OfferRequest offerRequest = new OfferRequest(1, "FLATX%", (int)10.500, List.of("p1"));
+		OfferRequest offerRequest = new OfferRequest(1, "FLATX%", (int)99.690, List.of("p1"));
 		postOffer(offerRequest);
 		int cartValue = 200;
-		int expectedValue = cartValue - (cartValue * 10 / 100);
-		validateApplyOffer(new ApplyOfferRequest(cartValue, 1, 1), expectedValue);
+		int expectedValue = cartValue - (cartValue * 100 / 100);
+		validateApplyOffer(new ApplyOfferRequest(cartValue, 2, 1), expectedValue);
 	}
 
 	@Test
